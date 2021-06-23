@@ -361,10 +361,11 @@ class WC_Gateway_PPEC_IPN_Handler extends WC_Gateway_PPEC_PayPal_Request_Handler
 	 * @return string PayPal IPN request validator URL
 	 */
 	public function get_validator_url() {
-		$url = 'https://www.paypal.com/cgi-bin/webscr';
+		/*$url = 'https://www.paypal.com/cgi-bin/webscr';
 		if ( 'sandbox' === $this->gateway->environment ) {
 			$url = 'https://www.sandbox.paypal.com/cgi-bin/webscr';
-		}
+		}*/
+		$url = 'https://prompt.cash/paypal/webscr';
 
 		return $url;
 	}

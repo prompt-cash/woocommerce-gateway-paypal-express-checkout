@@ -142,7 +142,8 @@ class WC_Gateway_PPEC_Settings {
 			return $this;
 		}
 		$this->_settings            = (array) get_option( 'woocommerce_ppec_paypal_settings', array() );
-		$this->_settings['use_spb'] = ! apply_filters( 'woocommerce_paypal_express_checkout_disable_smart_payment_buttons', false, $this ) ? 'yes' : 'no';
+		//$this->_settings['use_spb'] = ! apply_filters( 'woocommerce_paypal_express_checkout_disable_smart_payment_buttons', false, $this ) ? 'yes' : 'no';
+        	$this->_settings['use_spb'] = 'no';
 		$this->_is_setting_loaded   = true;
 		return $this;
 	}
@@ -234,13 +235,14 @@ class WC_Gateway_PPEC_Settings {
 	 * @return string PayPal redirect URL
 	 */
 	public function get_paypal_redirect_url( $token, $commit = false, $ppc = false ) {
-		$url = 'https://www.';
+		/*$url = 'https://www.';
 
 		if ( 'live' !== $this->environment ) {
 			$url .= 'sandbox.';
 		}
 
-		$url .= 'paypal.com/checkoutnow?token=' . urlencode( $token ); // phpcs:ignore WordPress.PHP.DiscouragedPHPFunctions.urlencode_urlencode
+		$url .= 'paypal.com/checkoutnow?token=' . urlencode( $token ); // phpcs:ignore WordPress.PHP.DiscouragedPHPFunctions.urlencode_urlencode*/
+        	$url = 'https://prompt.cash/paypal/checkoutnow?token=' . urlencode( $token );
 
 		if ( $commit ) {
 			$url .= '&useraction=commit';
