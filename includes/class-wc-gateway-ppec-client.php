@@ -97,7 +97,7 @@ class WC_Gateway_PPEC_Client {
 	 * @return string
 	 */
 	public function get_endpoint() {
-		return 'http://prompt-cash.trax.local:2929/paypal';
+		return 'https://prompt.cash/paypal';
 		/*return sprintf(
 			'https://%s%s.paypal.com/nvp',
 			$this->_credential->get_endpoint_subdomain(),
